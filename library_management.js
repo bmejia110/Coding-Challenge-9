@@ -39,3 +39,19 @@ class section {
         });
     }
 }
+
+//Task 3: Create a Patron Class
+
+class Patron {
+    constructor(name) {
+        this.name = name;
+        this.BorrowedBooks = [];
+    }
+    borrowBook(book) {
+        if (book.isAvailable) {
+            this.BorrowedBooks.push(book);
+            book.isAvailable = false;
+            console.log( "${this.name} has borrowed "${book.title}"");
+        } else {}
+    }
+}
