@@ -56,7 +56,7 @@ class Patron {
     }
 }
 
-//Task 4: Create a VIPatron Class that Inheritys from Patron 
+//Task 4: Create a VIPatron Class that Inherits from Patron 
 
 class VIPatron extends Patron {
     constructor(name, priority = true) {
@@ -64,8 +64,12 @@ class VIPatron extends Patron {
         this.priority = priority;
     }
     borrowBook(book) {
-        if(this.priority) {
-            console.log("${this.name} has vip status to borrow "${book.title}"")
+        if (book.isBookAvailable()) {
+        book.setAvailability(false);
+        this.BorrowedBooks.push(book);
+        console.log("${this.name} borrowed $(book.title}.");
+        } else {
+            console.log("{book.title} is not available");
         }
     }
 }
