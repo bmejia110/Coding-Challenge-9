@@ -58,7 +58,7 @@ class Patron {
 
 //Task 4: Create a VIPatron Class that Inherits from Patron 
 
-class VIPatron extends Patron {
+class VIPPatron extends Patron {
     constructor(name, priority = true) {
         super(name);
         this.priority = priority;
@@ -73,3 +73,33 @@ class VIPatron extends Patron {
         }
     }
 }
+
+//Task 6: Create and Manage Sections and Patrons
+
+//creating books
+const book1 = new Book("The Intelligent Investor", "Benjamin Graham", "0987654321");
+const book2 = new Book("Principles", "Ray Dalio", "5566778899");
+const book3 = new Book("Rich Dad Poor Dad", "Robert Kiyosaki", "0011223344");
+const book4 = new Book("The Richest Man in Babylon", "George S. Clason", "667778890");
+
+//creating sections
+const economicsSection = new Section("Economics");
+const investingSection = new Section("Investing");
+
+// Assigning to sections
+
+economicsSection.addBook(book1);
+economicsSection.addBook(book2);
+investingSection.addBook(book3);
+investingSection.addBook(book4);
+
+//creating patrons
+
+const patron = new Patron("Alex Gomez")
+const vipPatron = new VIPPatron("Trader Joe", true);
+
+//patrons borrow and return books
+
+patron.borrowBook(book1);
+vipPatron.borrowBook(book3);
+vipPatron.returnBook(book3);
